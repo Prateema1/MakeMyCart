@@ -1,5 +1,6 @@
 import React from "react";
 import MacBook from "../assets/MacBook.jpg"
+import toast from "react-hot-toast";
 
 const Home = () => {
     const productList =[
@@ -19,6 +20,7 @@ const Home = () => {
 
     const addToCartHandler = (options) => {
         console.log(options);
+        toast.success("Added to cart");
     };
 
   return (
