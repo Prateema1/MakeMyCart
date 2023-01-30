@@ -1,6 +1,7 @@
 import React from "react";
 import MacBook from "../assets/MacBook.jpg"
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 const Home = () => {
     const productList =[
@@ -17,9 +18,14 @@ const Home = () => {
             id: "andaksdjjd"
         }
     ]
+    
+    const dispatch = useDispatch();
 
     const addToCartHandler = (options) => {
-        console.log(options);
+        dispatch({type:"addToCart", payload:options})
+        dispatch({
+            type: "calculatePrice"
+          })
         toast.success("Added to cart");
     };
 
