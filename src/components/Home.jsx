@@ -1,17 +1,18 @@
 import React from "react";
+import MacBook from "../assets/MacBook.jpg"
 
 const Home = () => {
     const productList =[
         { 
             name: "Mac Book", 
             price: 14000, 
-            imgSrc: "afr", 
+            imgSrc: MacBook, 
             id: "hhsgjhsgjjasd"
         },
         { 
             name: "Pro Book", 
             price: 12000, 
-            imgSrc: "acd", 
+            imgSrc: MacBook, 
             id: "andaksdjjd"
         }
     ]
