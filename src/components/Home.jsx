@@ -1,26 +1,17 @@
 import React from "react";
+import Products from "./Products";
 import MacBook from "../assets/MacBook.jpg"
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
-    const productList =[
-        { 
-            name: "Mac Book", 
-            price: 14000, 
-            imgSrc: MacBook, 
-            id: "hhsgjhsgjjasd"
-        },
-        { 
-            name: "Pro Book", 
-            price: 12000, 
-            imgSrc: MacBook, 
-            id: "andaksdjjd"
-        }
-    ]
-    
+    <Products />
+    const { products } = useSelector((state) => state.product);
+    console.log(products, "PRODUCTS")
     const dispatch = useDispatch();
-
+    
     const addToCartHandler = (options) => {
         dispatch({type:"addToCart", payload:options})
         dispatch({
@@ -31,14 +22,15 @@ const Home = () => {
 
   return (
     <div className="home">
+    <Products />
     {
-        productList.map(i=>(
+        products.map((prod)=>(
             <ProductCard 
-            key={i.id} 
-            imgSrc={i.imgSrc}
-            name={i.name}
-            price={i.price}
-            id={i.id}
+            key={prod.id} 
+            imgSrc={prod.thumbnail}
+            name={prod.title}
+            price={prod.price}
+            id={prod.id}
             handler={addToCartHandler}
             />
         ))
